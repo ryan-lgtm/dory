@@ -1,0 +1,50 @@
+{
+  "name": "DORy",
+  "description": "The super slick chrome extension to jump to U.S. State DOR pages.",
+  "version": "1.0",
+  "author": "Boundley",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/custom.js"]
+    }],
+  "browser_action": {
+    "default_icon": {
+      "16": "images/dory16.png",
+      "19": "images/dory19.png",
+      "32": "images/dory32.png",
+      "38": "images/dory38.png",
+      "48": "images/dory48.png",
+      "128": "images/dory128.png"
+    },
+    "default_popup": "index.html",
+    "default_title": "Find that DOR!"
+  },
+  "icons": {
+    "16": "images/dory16.png",
+    "32": "images/dory32.png",
+    "48": "images/dory48.png",
+    "128": "images/dory128.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Alt+F",
+        "mac": "Alt+F",
+        "chromeos": "Alt+F",
+        "linux": "Alt+F"
+      }
+    },
+    "_execute_page_action": {
+      "suggested_key": {
+        "windows": "Alt+F",
+        "mac": "Alt+F",
+        "chromeos": "Alt+F",
+        "linux": "Alt+F"
+      }
+    }
+  }
+}
