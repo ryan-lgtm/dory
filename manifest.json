@@ -1,7 +1,7 @@
 {
   "name": "DORy",
   "description": "The super slick chrome extension to jump to U.S. State DOR pages.",
-  "version": "1.0",
+  "version": "1.4",
   "author": "Boundley",
   "manifest_version": 2,
   "content_scripts": [{
@@ -26,9 +26,6 @@
     "48": "images/dory48.png",
     "128": "images/dory128.png"
   },
-  "permissions": [
-    "activeTab"
-  ],
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {

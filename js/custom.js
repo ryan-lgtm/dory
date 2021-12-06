@@ -59,7 +59,7 @@ var data = [{
     code: "CT",
     url: "https://drs.ct.gov/eservices/_/",
     forms_url: "http://www.ct.gov/drs/lib/drs/fillable_forms/2011forms/2011-os-114-fillable.pdf",
-    online_file_url: "https://drsbustax.ct.gov/AUT/welcomebusiness.aspx",
+    online_file_url: "https://drs.ct.gov/eservices/_/",
     payment_url: "",
     registration_url: "http://www.ct.gov/drs/cwp/view.asp?a=1509&q=266240#tsc"
   },
@@ -129,7 +129,7 @@ var data = [{
     code: "IN",
     url: "https://www.in.gov/dor/3986.htm",
     forms_url: "https://www.in.gov/dor/3504.htm",
-    online_file_url: "https://www.intax.in.gov/login",
+    online_file_url: "https://intime.dor.in.gov/eServices/_/#1",
     payment_url: "",
     registration_url: "https://intime.dor.in.gov/eServices/_/#1"
   },
@@ -245,7 +245,7 @@ var data = [{
     code: "NE",
     url: "http://www.revenue.nebraska.gov/salestax.html",
     forms_url: "http://www.revenue.nebraska.gov/tax/current/fill-in/f_10.pdf",
-    online_file_url: "https://revenue.nebraska.gov/user",
+    online_file_url: "https://ndr-efs.ne.gov/revefs/allPages/login.faces",
     payment_url: "http://www.revenue.nebraska.gov/electron/bus_e-pay.html",
     registration_url: "https://cio-centurion.ne.gov/centauth/login.xhtml?applicationCode=12555d25-8d60-4a03-96bc-261d74795454&organizationCode=BOOT%3AREVENUE&invitationCode=-1&urlForRedirect=https%3A%2F%2Fndr-taxapp.ne.gov%2Frevtaxapp%2Fpages%2FappWelcomePage.faces"
   },
@@ -289,7 +289,7 @@ var data = [{
     code: "NY",
     url: "http://www.tax.ny.gov/bus/st/stidx.htm",
     forms_url: "http://www.tax.ny.gov/forms/sales_cur_forms.htm",
-    online_file_url: "https://www.tax.ny.gov/",
+    online_file_url: "https://www.tax.ny.gov/online/default.htm",
     payment_url: "",
     registration_url: "https://www.tax.ny.gov/bus/st/register.htm"
   },
@@ -480,8 +480,13 @@ $("#stateInput").on('keypress keyup change input', function() {
   var term = $(this).val().toLowerCase();
   $('#matches').html(!term.length ? '' :
     dataArr.filter(function(dor) {
-      // look for the entry with a matching `code` value
-      return (dor.code.toLowerCase().indexOf(term) !== -1);
+      if ($('input#fullName').is(':checked')) {
+        // Look for the entry with a matching 'name' value if option is checked
+        return (dor.name.toLowerCase().indexOf(term) !== -1);
+      } else {
+        // look for the entry with a matching `code` value
+        return (dor.code.toLowerCase().indexOf(term) !== -1);
+      }
     }).map(function(dor) {
       // get titles of matches
 
